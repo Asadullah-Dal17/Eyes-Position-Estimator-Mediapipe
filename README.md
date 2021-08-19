@@ -18,7 +18,7 @@
 - [ ] Voice position indicator using pygame.
 
 ## Face Mesh Points  
-![Face Mesh point image](mesh_point_image.png)
+<img src='/mesh_image.png'>
 
 ## Face Mesh Map Points  
 
