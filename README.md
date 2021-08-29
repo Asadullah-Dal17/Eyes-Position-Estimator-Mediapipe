@@ -3,7 +3,7 @@
 
 ## TODO 
 
-- [ ] Detecting face landmarks with Mediapipe 👨‍💻 
+- [x] Detecting face landmarks with Mediapipe 👨‍💻  
 
 - [ ] Detecting Eyes Landmarks 👁️‍🗨️ 👁️‍🗨️  
 
