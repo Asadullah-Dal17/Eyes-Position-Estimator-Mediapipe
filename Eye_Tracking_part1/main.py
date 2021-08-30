@@ -52,12 +52,12 @@ with map_face_mesh.FaceMesh(min_detection_confidence =0.5, min_tracking_confiden
         results  = face_mesh.process(rgb_frame)
         if results.multi_face_landmarks:
             mesh_coords = landmarksDetection(frame, results, False)
-            frame =utils.fillPolyTrans(frame, [mesh_coords[p] for p in FACE_OVAL], utils.GRAY, opacity=0.6)
+            frame =utils.fillPolyTrans(frame, [mesh_coords[p] for p in FACE_OVAL], utils.GRAY, opacity=0.4)
             frame =utils.fillPolyTrans(frame, [mesh_coords[p] for p in LEFT_EYE], utils.GREEN, opacity=0.3)
             frame =utils.fillPolyTrans(frame, [mesh_coords[p] for p in RIGHT_EYE], utils.GREEN, opacity=0.3)
-            frame =utils.fillPolyTrans(frame, [mesh_coords[p] for p in LEFT_EYEBROW], utils.YELLOW, opacity=0.4)
-            frame =utils.fillPolyTrans(frame, [mesh_coords[p] for p in RIGHT_EYEBROW], utils.YELLOW, opacity=0.4)
-            frame =utils.fillPolyTrans(frame, [mesh_coords[p] for p in LIPS], utils.PINK, opacity=0.4)
+            frame =utils.fillPolyTrans(frame, [mesh_coords[p] for p in LEFT_EYEBROW], utils.BLACK, opacity=0.3)
+            frame =utils.fillPolyTrans(frame, [mesh_coords[p] for p in RIGHT_EYEBROW], utils.BLACK, opacity=0.3)
+            frame =utils.fillPolyTrans(frame, [mesh_coords[p] for p in LIPS], utils.PINK, opacity=0.5)
 
 
         # calculating  frame per seconds FPS
