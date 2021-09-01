@@ -68,13 +68,13 @@ with map_face_mesh.FaceMesh(min_detection_confidence =0.5, min_tracking_confiden
             frame =utils.fillPolyTrans(frame, [mesh_coords[p] for p in RIGHT_EYEBROW], utils.ORANGE, opacity=0.4)
             frame =utils.fillPolyTrans(frame, [mesh_coords[p] for p in LIPS], utils.BLACK, opacity=0.3 )
             # Changes for Thumbnail of youtube Video 
-            [cv.circle(frame,mesh_coords[p], 2, utils.GREEN , -1) for p in LIPS]
-            [cv.circle(frame,mesh_coords[p], 2, utils.BLACK ,- 1, cv.LINE_AA) for p in RIGHT_EYE]
-            [cv.circle(frame,mesh_coords[p], 2, utils.BLACK , -1) for p in LEFT_EYE]
+            [cv.circle(frame,mesh_coords[p], 1, utils.GREEN , -1, cv.LINE_AA) for p in LIPS]
+            [cv.circle(frame,mesh_coords[p], 1, utils.BLACK ,- 1, cv.LINE_AA) for p in RIGHT_EYE]
+            [cv.circle(frame,mesh_coords[p], 1, utils.BLACK , -1, cv.LINE_AA) for p in LEFT_EYE]
 
-            [cv.circle(frame,mesh_coords[p], 2, utils.BLACK , -1) for p in RIGHT_EYEBROW]
-            [cv.circle(frame,mesh_coords[p], 2, utils.BLACK , -1) for p in LEFT_EYEBROW]
-            [cv.circle(frame,mesh_coords[p], 2, utils.RED , -1) for p in FACE_OVAL]
+            [cv.circle(frame,mesh_coords[p], 1, utils.BLACK , -1, cv.LINE_AA) for p in RIGHT_EYEBROW]
+            [cv.circle(frame,mesh_coords[p], 1, utils.BLACK , -1, cv.LINE_AA) for p in LEFT_EYEBROW]
+            [cv.circle(frame,mesh_coords[p], 1, utils.RED , -1, cv.LINE_AA) for p in FACE_OVAL]
 
 
 
@@ -86,7 +86,7 @@ with map_face_mesh.FaceMesh(min_detection_confidence =0.5, min_tracking_confiden
 
         frame =utils.textWithBackground(frame,f'FPS: {round(fps,1)}',FONTS, 1.0, (20, 50), bgOpacity=0.9, textThickness=2)
         # writing image for thumbnail drawing shape
-        cv.imwrite(f'img/frame_{frame_counter}.png', frame)
+        # cv.imwrite(f'img/frame_{frame_counter}.png', frame)
         cv.imshow('frame', frame)
         key = cv.waitKey(1)
         if key==ord('q') or key ==ord('Q'):
