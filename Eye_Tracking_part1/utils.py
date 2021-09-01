@@ -106,7 +106,7 @@ def fillPolyTrans(img, points, color, opacity):
     new_img = cv.addWeighted(overlay, opacity, img, 1 - opacity, 0)
     # print(points_list)
     img = new_img
-
+    cv.polylines(img, [list_to_np_array], True, color,2, cv.LINE_AA)
     return img
 
 def rectTrans(img, pt1, pt2, color, thickness, opacity):

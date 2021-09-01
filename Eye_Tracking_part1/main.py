@@ -1,6 +1,8 @@
 import cv2 as cv
 import mediapipe as mp
 import time
+
+from numpy import greater
 import utils
 
 # variables 
@@ -48,16 +50,34 @@ with map_face_mesh.FaceMesh(min_detection_confidence =0.5, min_tracking_confiden
         ret, frame = camera.read() # getting frame from camera 
         if not ret: 
             break # no more frames break
+        #  resizing frame
+        # frame = cv.resize(frame, None, fx=2.0, fy=2.0, interpolation=cv.INTER_CUBIC)
+        # writing orginal image image thumbnail 
+        # cv.imwrite(f'img/img_{frame_counter}.png', frame)
+        # print(frame_counter)
+
+
         rgb_frame = cv.cvtColor(frame, cv.COLOR_RGB2BGR)
         results  = face_mesh.process(rgb_frame)
         if results.multi_face_landmarks:
             mesh_coords = landmarksDetection(frame, results, False)
-            frame =utils.fillPolyTrans(frame, [mesh_coords[p] for p in FACE_OVAL], utils.GRAY, opacity=0.4)
-            frame =utils.fillPolyTrans(frame, [mesh_coords[p] for p in LEFT_EYE], utils.GREEN, opacity=0.3)
-            frame =utils.fillPolyTrans(frame, [mesh_coords[p] for p in RIGHT_EYE], utils.GREEN, opacity=0.3)
-            frame =utils.fillPolyTrans(frame, [mesh_coords[p] for p in LEFT_EYEBROW], utils.BLACK, opacity=0.3)
-            frame =utils.fillPolyTrans(frame, [mesh_coords[p] for p in RIGHT_EYEBROW], utils.BLACK, opacity=0.3)
-            frame =utils.fillPolyTrans(frame, [mesh_coords[p] for p in LIPS], utils.PINK, opacity=0.5)
+            frame =utils.fillPolyTrans(frame, [mesh_coords[p] for p in FACE_OVAL], utils.WHITE, opacity=0.4)
+            frame =utils.fillPolyTrans(frame, [mesh_coords[p] for p in LEFT_EYE], utils.GREEN, opacity=0.4)
+            frame =utils.fillPolyTrans(frame, [mesh_coords[p] for p in RIGHT_EYE], utils.GREEN, opacity=0.4)
+            frame =utils.fillPolyTrans(frame, [mesh_coords[p] for p in LEFT_EYEBROW], utils.ORANGE, opacity=0.4)
+            frame =utils.fillPolyTrans(frame, [mesh_coords[p] for p in RIGHT_EYEBROW], utils.ORANGE, opacity=0.4)
+            frame =utils.fillPolyTrans(frame, [mesh_coords[p] for p in LIPS], utils.BLACK, opacity=0.3 )
+            # Changes for Thumbnail of youtube Video 
+            [cv.circle(frame,mesh_coords[p], 2, utils.GREEN , -1) for p in LIPS]
+            [cv.circle(frame,mesh_coords[p], 2, utils.BLACK ,- 1, cv.LINE_AA) for p in RIGHT_EYE]
+            [cv.circle(frame,mesh_coords[p], 2, utils.BLACK , -1) for p in LEFT_EYE]
+
+            [cv.circle(frame,mesh_coords[p], 2, utils.BLACK , -1) for p in RIGHT_EYEBROW]
+            [cv.circle(frame,mesh_coords[p], 2, utils.BLACK , -1) for p in LEFT_EYEBROW]
+            [cv.circle(frame,mesh_coords[p], 2, utils.RED , -1) for p in FACE_OVAL]
+
+
+
 
 
         # calculating  frame per seconds FPS
@@ -65,7 +85,8 @@ with map_face_mesh.FaceMesh(min_detection_confidence =0.5, min_tracking_confiden
         fps = frame_counter/end_time
 
         frame =utils.textWithBackground(frame,f'FPS: {round(fps,1)}',FONTS, 1.0, (20, 50), bgOpacity=0.9, textThickness=2)
-
+        # writing image for thumbnail drawing shape
+        cv.imwrite(f'img/frame_{frame_counter}.png', frame)
         cv.imshow('frame', frame)
         key = cv.waitKey(1)
         if key==ord('q') or key ==ord('Q'):
