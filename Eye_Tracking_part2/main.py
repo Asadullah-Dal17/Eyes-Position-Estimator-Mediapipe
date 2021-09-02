@@ -1,8 +1,6 @@
 import cv2 as cv
 import mediapipe as mp
 import time
-
-from numpy import greater
 import utils
 
 # variables 
