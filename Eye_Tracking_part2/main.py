@@ -1,8 +1,8 @@
 import cv2 as cv
 import mediapipe as mp
 import time
-import utils
-
+import utils, math
+import numpy as np
 # variables 
 frame_counter =0
 
@@ -26,17 +26,24 @@ RIGHT_EYEBROW=[ 70, 63, 105, 66, 107, 55, 65, 52, 53, 46 ]
 
 map_face_mesh = mp.solutions.face_mesh
 # camera object 
-camera = cv.VideoCapture(0)
+camera = cv.VideoCapture(1)
 # landmark detection function 
 def landmarksDetection(img, results, draw=False):
     img_height, img_width= img.shape[:2]
     # list[(x,y), (x,y)....]
     mesh_coord = [(int(point.x * img_width), int(point.y * img_height)) for point in results.multi_face_landmarks[0].landmark]
     if draw :
-        [cv.circle(img, p, 2, utils.GREEN, -1) for p in mesh_coord]
+        [cv.circle(img, p, 2, (0,255,0), -1) for p in mesh_coord]
 
     # returning the list of tuples for each landmarks 
     return mesh_coord
+
+# Euclaidean distance 
+
+
+# Blink Ratio 
+
+
 
 with map_face_mesh.FaceMesh(min_detection_confidence =0.5, min_tracking_confidence=0.5) as face_mesh:
 
@@ -49,32 +56,16 @@ with map_face_mesh.FaceMesh(min_detection_confidence =0.5, min_tracking_confiden
         if not ret: 
             break # no more frames break
         #  resizing frame
-        # frame = cv.resize(frame, None, fx=2.0, fy=2.0, interpolation=cv.INTER_CUBIC)
-        # writing orginal image image thumbnail 
-        # cv.imwrite(f'img/img_{frame_counter}.png', frame)
-        # print(frame_counter)
-
-
+        frame = cv.resize(frame, None, fx=2.0, fy=2.0, interpolation=cv.INTER_CUBIC)
+    
         rgb_frame = cv.cvtColor(frame, cv.COLOR_RGB2BGR)
         results  = face_mesh.process(rgb_frame)
         if results.multi_face_landmarks:
             mesh_coords = landmarksDetection(frame, results, False)
-            frame =utils.fillPolyTrans(frame, [mesh_coords[p] for p in FACE_OVAL], utils.WHITE, opacity=0.4)
-            frame =utils.fillPolyTrans(frame, [mesh_coords[p] for p in LEFT_EYE], utils.GREEN, opacity=0.4)
-            frame =utils.fillPolyTrans(frame, [mesh_coords[p] for p in RIGHT_EYE], utils.GREEN, opacity=0.4)
-            frame =utils.fillPolyTrans(frame, [mesh_coords[p] for p in LEFT_EYEBROW], utils.ORANGE, opacity=0.4)
-            frame =utils.fillPolyTrans(frame, [mesh_coords[p] for p in RIGHT_EYEBROW], utils.ORANGE, opacity=0.4)
-            frame =utils.fillPolyTrans(frame, [mesh_coords[p] for p in LIPS], utils.BLACK, opacity=0.3 )
-            # Changes for Thumbnail of youtube Video 
-            [cv.circle(frame,mesh_coords[p], 1, utils.GREEN , -1, cv.LINE_AA) for p in LIPS]
-            [cv.circle(frame,mesh_coords[p], 1, utils.BLACK ,- 1, cv.LINE_AA) for p in RIGHT_EYE]
-            [cv.circle(frame,mesh_coords[p], 1, utils.BLACK , -1, cv.LINE_AA) for p in LEFT_EYE]
-
-            [cv.circle(frame,mesh_coords[p], 1, utils.BLACK , -1, cv.LINE_AA) for p in RIGHT_EYEBROW]
-            [cv.circle(frame,mesh_coords[p], 1, utils.BLACK , -1, cv.LINE_AA) for p in LEFT_EYEBROW]
-            [cv.circle(frame,mesh_coords[p], 1, utils.RED , -1, cv.LINE_AA) for p in FACE_OVAL]
-
-
+            blinkRatio(frame, mesh_coords, RIGHT_EYE, LEFT_EYE)
+  
+            # cv.polylines(frame,  [np.array([mesh_coords[p] for p in LEFT_EYE ], dtype=np.int32)], True, utils.GREEN, 1, cv.LINE_AA)
+            # cv.polylines(frame,  [np.array([mesh_coords[p] for p in RIGHT_EYE ], dtype=np.int32)], True, utils.GREEN, 1, cv.LINE_AA)
 
 
 

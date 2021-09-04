@@ -109,6 +109,11 @@ def fillPolyTrans(img, points, color, opacity):
     cv.polylines(img, [list_to_np_array], True, color,1, cv.LINE_AA)
     return img
 
+# def pollyLines(img, points, color):
+#     list_to_np_array = np.array(points, dtype=np.int32)
+#     cv.polylines(img, [list_to_np_array], True, color,1, cv.LINE_AA)
+#     return img
+
 def rectTrans(img, pt1, pt2, color, thickness, opacity):
     """
 
