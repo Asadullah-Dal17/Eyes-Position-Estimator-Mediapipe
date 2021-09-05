@@ -5,8 +5,10 @@ import utils, math
 import numpy as np
 # variables 
 frame_counter =0
-
-# constants 
+CEF_COUNTER =0
+TOTAL_BLINKS =0
+# constants
+CLOSED_EYES_FRAME =3
 FONTS =cv.FONT_HERSHEY_COMPLEX
 
 # face bounder indices 
@@ -39,9 +41,45 @@ def landmarksDetection(img, results, draw=False):
     return mesh_coord
 
 # Euclaidean distance 
+def euclaideanDistance(point, point1):
+    x, y = point
+    x1, y1 = point1
+    distance = math.sqrt((x1 - x)**2 + (y1 - y)**2)
+    return distance
 
+# Blinking Ratio
+def blinkRatio(img, landmarks, right_indices, left_indices):
+    # Right eyes 
+    # horizontal line 
+    rh_right = landmarks[right_indices[0]]
+    rh_left = landmarks[right_indices[8]]
+    # vertical line 
+    rv_top = landmarks[right_indices[12]]
+    rv_bottom = landmarks[right_indices[4]]
+    # draw lines on right eyes 
+    cv.line(img, rh_right, rh_left, utils.GREEN, 2)
+    cv.line(img, rv_top, rv_bottom, utils.WHITE, 2)
 
-# Blink Ratio 
+    # LEFT_EYE 
+    # horizontal line 
+    lh_right = landmarks[left_indices[0]]
+    lh_left = landmarks[left_indices[8]]
+
+    # vertical line 
+    lv_top = landmarks[left_indices[12]]
+    lv_bottom = landmarks[left_indices[4]]
+
+    rhDistance = euclaideanDistance(rh_right, rh_left)
+    rvDistance = euclaideanDistance(rv_top, rv_bottom)
+
+    lvDistance = euclaideanDistance(lv_top, lv_bottom)
+    lhDistance = euclaideanDistance(lh_right, lh_left)
+
+    reRatio = rhDistance/rvDistance
+    leRatio = lhDistance/lvDistance
+
+    ratio = (reRatio+leRatio)/2
+    return ratio 
 
 
 
@@ -56,14 +94,27 @@ with map_face_mesh.FaceMesh(min_detection_confidence =0.5, min_tracking_confiden
         if not ret: 
             break # no more frames break
         #  resizing frame
-        frame = cv.resize(frame, None, fx=2.0, fy=2.0, interpolation=cv.INTER_CUBIC)
+        frame = cv.resize(frame, None, fx=1.5, fy=1.5, interpolation=cv.INTER_CUBIC)
     
         rgb_frame = cv.cvtColor(frame, cv.COLOR_RGB2BGR)
         results  = face_mesh.process(rgb_frame)
         if results.multi_face_landmarks:
             mesh_coords = landmarksDetection(frame, results, False)
-            blinkRatio(frame, mesh_coords, RIGHT_EYE, LEFT_EYE)
-  
+            ratio = blinkRatio(frame, mesh_coords, RIGHT_EYE, LEFT_EYE)
+            cv.putText(frame, f'ratio {ratio}', (100, 100), FONTS, 1.0, utils.GREEN, 2)
+
+
+            if ratio >5.5:
+                CEF_COUNTER +=1
+                cv.putText(frame, 'Blink', (200, 30), FONTS, 1.3, utils.PINK, 2)
+            else:
+                if CEF_COUNTER>CLOSED_EYES_FRAME:
+                    TOTAL_BLINKS +=1
+                    CEF_COUNTER =0
+            cv.putText(frame, f'Total Blinks: {TOTAL_BLINKS}', (100, 150), FONTS, 0.6, utils.GREEN, 2)
+            
+
+
             # cv.polylines(frame,  [np.array([mesh_coords[p] for p in LEFT_EYE ], dtype=np.int32)], True, utils.GREEN, 1, cv.LINE_AA)
             # cv.polylines(frame,  [np.array([mesh_coords[p] for p in RIGHT_EYE ], dtype=np.int32)], True, utils.GREEN, 1, cv.LINE_AA)
 
@@ -77,7 +128,7 @@ with map_face_mesh.FaceMesh(min_detection_confidence =0.5, min_tracking_confiden
         # writing image for thumbnail drawing shape
         # cv.imwrite(f'img/frame_{frame_counter}.png', frame)
         cv.imshow('frame', frame)
-        key = cv.waitKey(1)
+        key = cv.waitKey(2)
         if key==ord('q') or key ==ord('Q'):
             break
     cv.destroyAllWindows()
