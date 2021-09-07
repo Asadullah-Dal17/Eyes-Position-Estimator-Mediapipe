@@ -3,12 +3,12 @@
 
 ## TODO 
 
-##### Eyes Tracking Part 1
+##### Eyes Tracking Part 1  [Video Tutorial](https://youtu.be/-jFobb6ARc4)
 - [x] Detecting face landmarks with Mediapipe 👨‍💻  
 - [x] Detecting Eyes Landmarks 👁️‍🗨️ 👁️‍🗨️  
 - [x] Draw Eyes,Eyebrows, lips and Face Oval with transparent shapes.
 
-##### Eyes Tracking Part 2
+##### Eyes Tracking Part 2 [Video Tutorial](https://youtu.be/XIJD43rbI-4) 
 - [x] Detecting the blinks
 - [x] Counting Blinks
 
