@@ -98,12 +98,12 @@ def eyesExtractor(img, right_eye_coords, left_eye_coords):
     cv.fillPoly(mask, [np.array(left_eye_coords, dtype=np.int32)], 255)
 
     # showing the mask 
-    cv.imshow('mask', mask)
+    # cv.imshow('mask', mask)
     
     # draw eyes image on mask, where white shape is 
     eyes = cv.bitwise_and(gray, gray, mask=mask)
     # change black color to gray other than eys 
-    cv.imshow('eyes draw', eyes)
+    # cv.imshow('eyes draw', eyes)
     eyes[mask==0]=155
     
     # getting minium and maximum x and y  for right and left eyes 
@@ -222,8 +222,8 @@ with map_face_mesh.FaceMesh(min_detection_confidence =0.5, min_tracking_confiden
             right_coords = [mesh_coords[p] for p in RIGHT_EYE]
             left_coords = [mesh_coords[p] for p in LEFT_EYE]
             crop_right, crop_left = eyesExtractor(frame, right_coords, left_coords)
-            cv.imshow('right', crop_left)
-            cv.imshow('left', crop_left)
+            # cv.imshow('right', crop_right)
+            # cv.imshow('left', crop_left)
             eye_position, color = positionEstimator(crop_right)
             utils.colorBackgroundText(frame, eye_position, FONTS, 1.0, (40, 220), 2, color[0], color[1], 8, 8)
             
