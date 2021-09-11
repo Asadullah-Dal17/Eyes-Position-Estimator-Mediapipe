@@ -29,7 +29,7 @@ RIGHT_EYEBROW=[ 70, 63, 105, 66, 107, 55, 65, 52, 53, 46 ]
 
 map_face_mesh = mp.solutions.face_mesh
 # camera object 
-camera = cv.VideoCapture(1)
+camera = cv.VideoCapture(0)
 # landmark detection function 
 def landmarksDetection(img, results, draw=False):
     img_height, img_width= img.shape[:2]
@@ -178,9 +178,6 @@ def pixelCounter(first_piece, second_piece, third_piece):
     return pos_eye, color
 
 
-
-
-
 with map_face_mesh.FaceMesh(min_detection_confidence =0.5, min_tracking_confidence=0.5) as face_mesh:
 
     # starting time here 
@@ -225,7 +222,10 @@ with map_face_mesh.FaceMesh(min_detection_confidence =0.5, min_tracking_confiden
             # cv.imshow('right', crop_right)
             # cv.imshow('left', crop_left)
             eye_position, color = positionEstimator(crop_right)
-            utils.colorBackgroundText(frame, eye_position, FONTS, 1.0, (40, 220), 2, color[0], color[1], 8, 8)
+            utils.colorBackgroundText(frame, f'R: {eye_position}', FONTS, 1.0, (40, 220), 2, color[0], color[1], 8, 8)
+            eye_position_left, color = positionEstimator(crop_left)
+            utils.colorBackgroundText(frame, f'L: {eye_position_left}', FONTS, 1.0, (40, 320), 2, color[0], color[1], 8, 8)
+            
             
 
 
