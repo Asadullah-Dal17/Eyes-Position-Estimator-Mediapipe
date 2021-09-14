@@ -4,6 +4,7 @@
 ## TODO 
 
 ##### Eyes Tracking Part 1  [Video Tutorial](https://youtu.be/-jFobb6ARc4)
+
 - [x] Detecting face landmarks with Mediapipe 👨‍💻  
 - [x] Detecting Eyes Landmarks 👁️‍🗨️ 👁️‍🗨️  
 - [x] Draw Eyes,Eyebrows, lips and Face Oval with transparent shapes.
@@ -12,21 +13,20 @@
 - [x] Detecting the blinks
 - [x] Counting Blinks
 
-##### Eyes Tracking Part 3
-- [ ] Extracting Eyes from the frame using Masking techniques
+##### Eyes Tracking Part 3 [Video Tutorial](https://youtu.be/Y-mCtkv41rk) 
 
-- [ ] Thresholding Eyes to get black ⚫ and white ⚪ pixels separated 
+- [x] Extracting Eyes from the frame using Masking techniques
 
-- [ ] Dividing Each Eye into three 3️⃣ pieces, right_piece, center_piece, left_piece
+- [x] Thresholding Eyes to get black ⚫ and white ⚪ pixels separated 
 
-- [ ] Counting the Black Pixel in each piece, and estimating position.
+- [x] Dividing Each Eye into three 3️⃣ pieces, right_piece, center_piece, left_piece
 
-##### Eyes Tracking Part 4
+- [x] Counting the Black Pixel in each piece, and estimating position.
 
-- [ ] Voice position indicator using pygame.
+##### Eyes Tracking Part 4 [Video Tutorial](https://youtu.be/oAgu20kuRQw) 
 
-## Video Tutorial
-#### Eyes Tracking with mediapipe part 1 
+- [x] Voice position indicator using pygame.
+ 
 
 #### [**Blog Post:** ](https://aiphile.blogspot.com/2021/08/eyes-tracking-mediapipe-part1.html)
 
@@ -36,6 +36,8 @@
 ### Face Mesh Map Points  
 
 ![Face Mesh Map image](mesh_map.jpg)
+
+if you have any qury, contact me on social media, if need more content on computer vision check out my youtube channel <a href="https://www.youtube.com/c/aiphile">  <img alt="AiPhile Youtube" src="https://user-images.githubusercontent.com/66181793/131223988-882d53a0-4882-468f-9bd7-46b46466baae.png"  width="20">
 
 ## Join me on Social Media 
 
