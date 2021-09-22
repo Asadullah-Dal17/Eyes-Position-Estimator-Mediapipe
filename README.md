@@ -1,12 +1,9 @@
 # Eyes-Position-Estimator-Mediapipe
 > *This is Eyes :eye: :eye: Tracking Project, here we will use computer vision techniques to extracting the eyes,  mediapipe python modules will provide the landmarks*, 
 
-## Eyes Position Estmation Demo without Voice
-
+## Eyes Position Estimation Demo without Voice
 
 https://user-images.githubusercontent.com/66181793/134312531-d8f6b068-13d9-4590-a1d2-232ea4cf5681.mp4
-
-
 
 ## TODO 
 
