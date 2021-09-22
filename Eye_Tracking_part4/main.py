@@ -42,9 +42,21 @@ RIGHT_EYE=[ 33, 7, 163, 144, 145, 153, 154, 155, 133, 173, 157, 158, 159, 160, 1
 RIGHT_EYEBROW=[ 70, 63, 105, 66, 107, 55, 65, 52, 53, 46 ]
 
 map_face_mesh = mp.solutions.face_mesh
+
 # camera object 
 camera = cv.VideoCapture(1)
+_, frame = camera.read()
+img = cv.resize(frame, None, fx=1.5, fy=1.5, interpolation=cv.INTER_CUBIC)
+img_hieght, img_width = img.shape[:2]
+print(img_hieght, img_width)
+
+
+
+# video Recording setup 
+fourcc = cv.VideoWriter_fourcc(*'XVID')
+out = cv.VideoWriter('output21.mp4', fourcc, 30.0, (img_width, img_hieght))
 # landmark detection function 
+
 def landmarksDetection(img, results, draw=False):
     img_height, img_width= img.shape[:2]
     # list[(x,y), (x,y)....]
@@ -273,10 +285,13 @@ with map_face_mesh.FaceMesh(min_detection_confidence =0.5, min_tracking_confiden
         # calculating  frame per seconds FPS
         end_time = time.time()-start_time
         fps = frame_counter/end_time
+        
 
         frame =utils.textWithBackground(frame,f'FPS: {round(fps,1)}',FONTS, 1.0, (30, 50), bgOpacity=0.9, textThickness=2)
         # writing image for thumbnail drawing shape
         # cv.imwrite(f'img/frame_{frame_counter}.png', frame)
+        # wirting the video for demo purpose 
+        out.write(frame)
         cv.imshow('frame', frame)
         key = cv.waitKey(2)
         if key==ord('q') or key ==ord('Q'):
