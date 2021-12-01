@@ -163,6 +163,7 @@ def positionEstimator(cropped_eye):
 
     # applying thrsholding to convert binary_image
     ret, threshed_eye = cv.threshold(median_blur, 130, 255, cv.THRESH_BINARY)
+    cv.imshow('eye', threshed_eye)
 
     # create fixd part for eye with 
     piece = int(w/3) 
