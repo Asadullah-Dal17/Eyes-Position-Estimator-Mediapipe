@@ -1,4 +1,5 @@
 # Eyes-Position-Estimator-Mediapipe
+![GitHub Repo stars](https://img.shields.io/github/stars/Asadullah-Dal17/Eyes-Position-Estimator-Mediapipe?style=social) ![GitHub forks](https://img.shields.io/github/forks/Asadullah-Dal17/Eyes-Position-Estimator-Mediapipe?style=social) ![YouTube Channel Subscribers](https://img.shields.io/youtube/channel/subscribers/UCc8Lx22a5OX4XMxrCykzjbA?style=social)
 > *This is Eyes :eye: :eye: Tracking Project, here we will use computer vision techniques to extracting the eyes,  mediapipe python modules will provide the landmarks*, 
 
 ## Eyes Position Estimation Demo without Voice
