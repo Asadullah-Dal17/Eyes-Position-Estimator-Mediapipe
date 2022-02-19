@@ -38,12 +38,31 @@ https://user-images.githubusercontent.com/66181793/150673670-7b12506f-67d6-4540-
 
 #### [**Blog Post:** ](https://aiphile.blogspot.com/2021/08/eyes-tracking-mediapipe-part1.html)
 
+
+
+
+
 ### Face Mesh Points  
+<details>
+<summary>Face Mesh Points</summary>
+<br>
+
 <img src='/mesh_image.png'>
+ 
+ </br>
+</details>
 
 ### Face Mesh Map Points  
 
+<details>
+<summary>Face Mesh Map Points</summary>
+<br>
+ 
 ![Face Mesh Map image](mesh_map.jpg)
+ 
+ 
+ </br>
+</details>
 
 if You found this Helpful, please star :star: it.
 
