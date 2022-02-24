@@ -6,7 +6,7 @@
 
 https://user-images.githubusercontent.com/66181793/134312531-d8f6b068-13d9-4590-a1d2-232ea4cf5681.mp4
 
-## Iris Tracking Medipipe Opencv python   [Video Tutorial 📹](https://youtu.be/DNKAvDeqH_Y)
+## Iris Tracking Mediapipe Opencv python   [Video Tutorial 📹](https://youtu.be/DNKAvDeqH_Y)
 https://user-images.githubusercontent.com/66181793/150673670-7b12506f-67d6-4540-96f7-ea6233c01bd6.mp4
 
 ## TODO 
