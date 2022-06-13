@@ -20,6 +20,7 @@ https://user-images.githubusercontent.com/66181793/150673670-7b12506f-67d6-4540-
 ##### Eyes Tracking Part 2 [Video Tutorial](https://youtu.be/XIJD43rbI-4) 
 - [x] Detecting the blinks
 - [x] Counting Blinks
+- __I updated only this part__
 
 ##### Eyes Tracking Part 3 [Video Tutorial](https://youtu.be/Y-mCtkv41rk) 
 
