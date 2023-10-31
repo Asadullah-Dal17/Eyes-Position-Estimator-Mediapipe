@@ -64,18 +64,47 @@ https://user-images.githubusercontent.com/66181793/150673670-7b12506f-67d6-4540-
  </br>
 </details>
 
-if You found this Helpful, please star :star: it.
+If you found this helpful, please star :star: it.
 
 You can Watch my Video Tutorial on Computer Vision Topics, just check out my YouTube Channel <a href="https://www.youtube.com/c/aiphile">  <img alt="AiPhile Youtube" src="https://user-images.githubusercontent.com/66181793/131223988-882d53a0-4882-468f-9bd7-46b46466baae.png"  width="20"> </a>
 
 
 
-I am avalaible for paid work here <a href="https://www.fiverr.com/aiphile"> Fiverr <img alt="fiverr" src="https://user-images.githubusercontent.com/66181793/163767548-9a68e1c1-341a-4b07-9e35-042c35694c08.png"  width="15">  
+I am avalaible for paid work here <a href="https://www.fiverr.com/asadullah_ar"> Fiverr <img alt="fiverr" src="https://user-images.githubusercontent.com/66181793/163767548-9a68e1c1-341a-4b07-9e35-042c35694c08.png"  width="15">  
 
 ## 💚🖤 Join me on Social Media 🖤💚 
 
-<h4><a href="https://www.youtube.com/c/aiphile"> YouTube  <img alt="AiPhile Youtube" src="https://user-images.githubusercontent.com/66181793/131223988-882d53a0-4882-468f-9bd7-46b46466baae.png"  width="35"> </a> 
- <a href="https://github.com/Asadullah-Dal17">  GitHub   <img alt="GitHub" src="https://user-images.githubusercontent.com/66181793/131223930-9fd2bfc7-9c43-465d-a057-55f3292f3b2b.png"  width="35"> </a> 
-  <a href="https://medium.com/@asadullah92c">  Medium   <img alt="Medium" src="https://user-images.githubusercontent.com/66181793/146642235-bde4be12-603d-4eed-bd44-5b28829e17b3.png"  width="35"> </a> 
- <a href="https://www.fiverr.com/aiphile">   Fiverr <img alt="Fiverr" src="https://user-images.githubusercontent.com/66181793/163767548-9a68e1c1-341a-4b07-9e35-042c35694c08.png"  width="35"> </a> 
-  <a href="https://www.instagram.com/aiphile17/">   Instagram <img alt="Instagram" src="https://user-images.githubusercontent.com/66181793/131223931-32d84c10-88b4-4cd6-8eb8-89f06c3b5b51.png"  width="35"> </a> 
+ 
+   <div id="badges">
+
+ <!-- Youtube Badge -->
+  <a href="https://www.youtube.com/c/aiphile">
+    <img src="https://img.shields.io/badge/YouTube-red?style=for-the-badge&logo=youtube&logoColor=white" alt="Youtube Badge"/>
+  </a>
+
+<!-- Fiverr Badge -->
+   <a href="https://www.fiverr.com/asadullah_ar">
+    <img src="https://img.shields.io/badge/Fiverr-fiverr?style=for-the-badge&logo=Fiverr&logoColor=black" alt="Fiverr Badge"/>
+  </a> 
+<!-- Instagram Badge  -->
+  <a href="https://www.instagram.com/aiphile17">
+    <img src="https://img.shields.io/badge/Instagram-purple?style=for-the-badge&logo=Instagram&logoColor=white" alt="Medium Badge"/>
+
+<!-- Medium Badge  -->
+  <a href="https://medium.com/@aiphile">
+    <img src="https://img.shields.io/badge/Medium-black?style=for-the-badge&logo=Medium&logoColor=white" alt="Medium Badge"/>
+  </a>
+
+<!-- LinkedIn Badge -->
+  <a href="https://www.linkedin.com/company/aiphile">
+    <img src="https://img.shields.io/badge/LinkedIn-blue?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn Badge"/>
+  </a>
+  <!-- Face book badge  -->
+<a href="https://asadullah.super.site">
+    <img src="https://img.shields.io/badge/My%20Profile-black?style=for-the-badge&logo=Profile&logoColor=Green" alt="Facebook Badge"/>
+  </a> 
+  <!-- Twitter Badge  -->
+  <a href="https://twitter.com/ai_phile">
+    <img src="https://img.shields.io/badge/Twitter-blue?style=for-the-badge&logo=twitter&logoColor=white" alt="Twitter Badge"/>
+  </a>
+</div>
